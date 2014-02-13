@@ -12,13 +12,8 @@
  */
 
 
-/* verifica se la prima parola ha solo un carattere un piu della seconda (o se la seconda ha solo un carattere in
-    meno della prima). Ritorna 0 se le due parole hanno la stessa liunghezza o differiscono di piu di un carattere. */
-
 /* Creo una mia funzione strdup pechè codelab impazzisce */
-
-
- char *miastrdup(char *s)
+char *miastrdup(char *s)
 {
     int i;
     int dim = strlen(s);
@@ -82,6 +77,7 @@ char** insertParole(char *nomeFile){
     fclose(f);
     return schema;
 }
+
 /* stampa un vettore di stringhe */
 void stampaV(char **parole, int numeroParole)
 {
@@ -152,6 +148,7 @@ int emptyV(char **vett, int dim)
     }
     return 1;
 }
+
 int risolvi_labirinto(char **pool, char **catena, int dim)
 {
     int i = 0, j;
