@@ -98,7 +98,7 @@ void listSort(nodo* lista)
     {
         while (temp->prossimo != NULL)
         {
-            if (alfabetico(temp->nome, temp->prossimo->nome) == 0)
+            if (alfabetico(temp->parola, temp->prossimo->parola) == 0)
                 {
                     successivo = temp->prossimo;
                     swap = temp;
