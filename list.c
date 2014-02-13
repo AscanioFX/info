@@ -27,6 +27,34 @@ void listPrint(node* parole)
     }
 }
 
+/* Ritorna un puntatore all'ultimo elemento */
+node* listLast(node* list)
+{
+    if (list == NULL)
+    {
+        printf("ERRORE [listLast] :: Lista vuota\n");
+        return NULL;
+    }
+    else
+    while (list->next != NULL)
+        list = list->next;
+
+    return list;
+}
+
+/* Ritorna la lunghezza della lista */
+int listLen(node* list){
+    int i, dim = 0;
+
+    while (list != NULL)
+    {
+        list = list->next;
+        dim++;
+    }
+    return dim;
+}
+
+/* Esempio di append senza ritorno. Riceve l'indirizzo del puntatore alla lista, e l'elemento da appendere. */
 void listAppend(node** list, char* parola)
 {
     if (*list == NULL)
