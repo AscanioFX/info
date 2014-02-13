@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+/* converte il singolo carattere in un intero */
 int toInt(char n)
 {
     return n-48;
@@ -59,7 +60,6 @@ int eval(char* s)
             }
             i = i + numLen(buff) - 1;
         }
-        /*sleep(1);*/
     }
     return tot;
 }
