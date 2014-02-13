@@ -42,6 +42,22 @@ int maxComune(int a, int b)
     return max;
 }
 
+/* ritorna 1 se i due numeri hanno un solo divisore in comune, altrimenti 0 */
+int un_solo_comune(int a, int b){
+    int i;
+    int div_com = 0;
+
+    for (i=2; i<(a>b?a:b); i++){
+        if (a % i == 0 && b % i == 0)
+            div_com++;
+        if (div_com > 1)
+            return 0;
+    }
+if (div_com == 0)
+    return 0;
+return 1;
+}
+
 /* eleva a alla b */
 int potenza(int a, int b)
 {
