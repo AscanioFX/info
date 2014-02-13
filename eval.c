@@ -55,6 +55,7 @@ int eval(char* s)
                     break;
                 case '/':
                     tot = tot / buff;
+                    break;
                 default:
                     printf("ERRORE [eval] :: operatore non valido.\n");
             }
