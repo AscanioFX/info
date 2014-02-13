@@ -54,7 +54,7 @@ int listLen(node* list){
     return dim;
 }
 
-/* Esempio di append senza ritorno. Riceve l'indirizzo del puntatore alla lista, e l'elemento da appendere. */
+/* Esempio di append senza ritorno. Riceve l'indirizzo del puntatore alla lista, e la parola da appendere. */
 void listAppend(node** list, char* parola)
 {
     if (*list == NULL)
