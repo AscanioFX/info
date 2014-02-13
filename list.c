@@ -68,6 +68,25 @@ void listAppend(node** list, char* parola)
     }
 }
 
+/* confronta 2 parole e ritorna 1 se sono i ordine alfabetico, altrimenti 0 */
+int alfabetico(char* s1, char* s2)
+{
+    int dim1 = strlen(s1);
+    int dim2 = strlen(s2);
+    int i;
+
+    for (i=0; i<(dim1 > dim2 ? dim1 : dim2); i++)
+    {
+        if (s1[i] > s2[i])
+            return 0;
+        else if (s1[i] < s2[i])
+            return 1;
+    }
+    if (dim1 > dim2)
+        return 0;
+    return 1;
+}
+
 /* ordina la lista. si suppone alfabetico ordini in ordine alfabetico */
 void listSort(nodo* lista)
 {
