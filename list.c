@@ -67,3 +67,23 @@ void listAppend(node** list, char* parola)
         listAppend(&((*list)->next), parola);
     }
 }
+
+/* ordina la lista. si suppone alfabetico ordini in ordine alfabetico */
+void listSort(nodo* lista)
+{
+    nodo* temp = lista;
+    nodo* swap;
+    nodo* successiv;
+    int flag = 0;
+    while (flag == 0)
+    {
+        while (temp->prossimo != NULL)
+        {
+            if (alfabetico(temp->nome, temp->prossimo->nome) == 0)
+                {
+                    successivo = temp->prossimo;
+                    swap = temp;
+                }
+        }
+    }
+}
