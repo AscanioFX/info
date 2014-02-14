@@ -68,7 +68,27 @@ void listAppend(node** list, char* parola)
     }
 }
 
-/* confronta 2 parole e ritorna 1 se sono i ordine alfabetico, altrimenti 0 */
+/* Esempio di append senza ritorno. Se disponibile accetta un puntatore all'ultimo elemento, altrimenti NULL */
+void listAppend(node** list, char* parola, node** last)
+{
+    if(*last != NULL)
+    {
+        (*last)->next = malloc(sizeof(node));
+        *last = (*last)->next;
+        (*last)->parola = strdup(parola);
+        (*last)->next = NULL;
+    } else if (*list == NULL)
+    {
+        *list = malloc(sizeof(node));
+        (*list)->parola = strdup(parola);
+        (*list)->next = NULL;
+        *last = *list;
+    } else
+    {
+        listAppend(&((*list)->next), parola, last);
+    }
+}
+/* Confronta 2 parole e ritorna 1 se sono i ordine alfabetico, altrimenti 0 */
 int alfabetico(char* s1, char* s2)
 {
     int dim1 = strlen(s1);
@@ -87,7 +107,7 @@ int alfabetico(char* s1, char* s2)
     return 1;
 }
 
-/* ordina la lista. si suppone alfabetico ordini in ordine alfabetico */
+/* Ordina la lista. Si suppone alfabetico ordini in ordine alfabetico */
 void listSort(nodo* lista)
 {
     nodo* temp = lista;
@@ -105,4 +125,37 @@ void listSort(nodo* lista)
                 }
         }
     }
+}
+
+/* Esempio di funzione per acquisire le parole da file e metterle in una lista */
+node* insertParole(char* nomeFile)
+{
+    printf("Inizio acquisizione dizionario.\n");
+    FILE* f = fopen(nomeFile, "r");
+    char buffer[30];
+    node* list = NULL;
+    node *last = NULL;
+
+    while(!feof(f))
+    {
+        fscanf(f, "%s", buffer);
+        listAppend(&list, buffer, &last);
+    }
+    printf("Finita acquisizione dizionario.\n");
+    return list;
+}
+
+/* Se la parola è presente nella lista ritorna 1 , altrimenti 0 */
+int presente(node* list, char* s)
+{
+    node* tmp = list;
+    while (tmp != NULL)
+    {
+        if (strcmp(tmp->parola, s) == 0)
+        {
+            return 1;
+        }
+        tmp = tmp->next;
+    }
+    return 0;
 }
